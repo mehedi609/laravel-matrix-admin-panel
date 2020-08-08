@@ -10,9 +10,12 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/backend/images/favicon.png')}}">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>Admin Dashboard</title>
     <!-- Custom CSS -->
     <link href="{{asset('assets/backend/css/style.min.css')}}" rel="stylesheet">
+{{--    <link href="{{asset('assets/backend/css/toastr.min.css)}}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -128,6 +131,7 @@
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('assets/backend/libs/popper.js/dist/popper.min.js')}}"></script>
     <script src="{{asset('assets/backend/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/backend/js/toastr.min.js')}}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
@@ -149,6 +153,7 @@
         });
     </script>
 
+    {!! Toastr::message() !!}
   </body>
 
 </html>

@@ -15,9 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', 'AdminController@login')->name('admin.login');
-Route::post('admin', 'AdminController@login')->name('admin.login');
+/*Route::get('admin', 'AdminController@login')->name('admin.login');
+Route::post('admin', 'AdminController@login')->name('admin.login');*/
 //Route::match(['get', 'post'], 'admin', 'AdminController@login')->name('admin.login');
+
+
+
+Route::group(
+  [
+    'as' => 'admin.',
+    'prefix' => 'admin'
+  ],
+  function () {
+    Route::get('login', 'AdminController@login')->name('login');
+    Route::post('login', 'AdminController@login')->name('login');
+    Route::get('logout', 'AdminController@logout')->name('logout');
+    Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+  }
+);
 
 Auth::routes();
 
